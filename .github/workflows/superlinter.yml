@@ -1,37 +1,22 @@
-jobs:
-  super-lint:
-    runs-on: ubuntu-latest
+name : Super-Linter
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: true
+on : push 
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install Prettier
-        run: npm install --global prettier
-
-      - name: Run Prettier and auto-fix
-        run: prettier --write "**/*.{js,ts,json,md,yml,yaml,css,html}"
-
-      - name: Commit and push Prettier fixes (if any)
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          if ! git diff --cached --quiet; then
-            git commit -m "style: Auto-fix formatting with Prettier"
-            git push
-          else
-            echo "No formatting changes to commit."
-
-      - name: Run Super Linter
-        uses: github/super-linter@v7
+permissions:
+  contents: read 
+  
+jobs :
+  super-lint :
+    name : Lint code base
+    runs-on : ubuntu-latest
+  
+    steps :
+      - name : Checkout code
+        uses : actions/checkout@v4
+  
+      - name : Run super linter
+        uses : github/super-linter@v7
+  
         env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH : main
+          GITHUB_TOKEN : ${{secrets.GITHUB_TOKEN}} this is my file, i want to run prettier with write function begore runnig linter
