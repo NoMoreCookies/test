@@ -1,20 +1,12 @@
-name: Super-Linter
-
-on: push
-
-permissions:
-  contents: write  # Required to push Prettier auto-fix changes
-
 jobs:
   super-lint:
-    name: Format with Prettier, then Lint code base
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          persist-credentials: true  # Needed to push back changes
+          persist-credentials: true
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
