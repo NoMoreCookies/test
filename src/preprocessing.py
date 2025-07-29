@@ -1,8 +1,8 @@
-a = 2
-print(a)
-b = 3
-print(b)
-c = a + b
-print(c)
-d = a * b
-print(d)
+A = 2
+print(A)
+B = 3
+print(B)
+C = A + B
+print(C)
+D = A * B
+print(D)
