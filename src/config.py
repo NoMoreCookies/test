@@ -1,6 +1,7 @@
 """
 configuration file for the project.
 """
+
 from fake_useragent import UserAgent
 
 # Create an instance of UserAgent
