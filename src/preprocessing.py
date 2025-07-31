@@ -4,7 +4,7 @@ transformation. It includes basic examples such as handling variables,
 performing addition and multiplication, and printing results to the
 console.
 """
-import requests
+
 A = 2
 print(A)
 B = 3
